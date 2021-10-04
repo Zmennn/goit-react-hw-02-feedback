@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import React from "react";
 
 class FeedBack extends Component {
     state = {
@@ -8,17 +8,29 @@ class FeedBack extends Component {
         bad: 0
     };
 
-} render(){
-    return (<>
-        <div>Please leave feedback</div>
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-        <div>Statistic</div>
-        <div>Good:10</div>
-        <div>Neutral:20</div>
-        <div>Bad:3</div>
+    addGood = () => {
+        this.setState(prevState => ({ good: prevState.good + 1 }))
+    };
+    addNeutral = () => {
+        this.setState(prevState => ({ neutral: prevState.neutral + 1 }))
+    };
+    addBad = () => {
+        this.setState(prevState => ({ bad: prevState.bad + 1 }))
+    };
 
+    render() {
+        return (<>
+            <div>Please leave feedback</div>
+            <button type="button" onClick={this.addGood}>Good</button>
+            <button type="button" onClick={this.addNeutral}>Neutral</button>
+            <button type="button" onClick={this.addBad}>Bad</button>
+            <div>Statistic</div>
+            <div>Good:{this.state.good}</div>
+            <div>Neutral:{this.state.neutral}</div>
+            <div>Bad:{this.state.bad}</div>
         </>
-    )
+        );
+    }
 }
+
+export default FeedBack  

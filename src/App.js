@@ -1,9 +1,10 @@
-
+import FeedBack from "./components/FeedBack.jsx"
 import './App.css';
 
 function App() {
-  return null
-
+  return (
+    <FeedBack />
+  )
 }
 
 export default App;
