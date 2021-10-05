@@ -1,9 +1,8 @@
-// import FeedBack from "./components/FeedBack.jsx"
+
 import React, { Component } from "react";
 import './App.css';
-import style from "./components/FeedBack.module.css";
-import Statistics from "./components/Statistic"
-// import { Component } from 'react/cjs/react.production.min';
+import Section from "./components/Section";
+
 
 class App extends Component {
   state = {
@@ -33,20 +32,15 @@ class App extends Component {
 
 
     return (<>
-      <div className={style.title}>Please leave feedback</div>
-
-      {/* <Buttons/> */}
-      <FeedbackOptions
-        options={ }
-        onLeaveFeedback={ } />
-
-      <Statistics
+      <Section
+        title={"Please leave feedback"}
+        options={this}
         good={good}
         neutral={neutral}
         bad={bad}
         total={countTotalFeedback}
-        positivePercentage={countPositiveFeedbackPercentage} />
-
+        positivePercentage={countPositiveFeedbackPercentage}
+      />
     </>
     );
   }
