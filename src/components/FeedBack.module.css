@@ -1,12 +1,12 @@
 .title {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 600;
   margin-left: 30px;
   margin-top: 15px;
 }
 
 .button {
-  font-style: 18px;
+  font-size: 20px;
   margin-left: 40px;
   margin-top: 10px;
   background-color: rgb(150, 150, 241);
@@ -14,7 +14,7 @@
 }
 
 .resultString {
-  font-size: 18px;
+  font-size: 22px;
   margin-left: 40px;
   margin-top: 10px;
 }
