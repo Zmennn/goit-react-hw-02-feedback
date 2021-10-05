@@ -1,6 +1,7 @@
 import { Component } from "react";
 import React from "react";
-import style from "./FeedBack.module.css"
+import style from "./FeedBack.module.css";
+import Buttons from "./Buttons"
 
 class FeedBack extends Component {
     state = {
@@ -18,22 +19,28 @@ class FeedBack extends Component {
     addBad = () => {
         this.setState(prevState => ({ bad: prevState.bad + 1 }))
     };
-    countTotalFeedback = () => {
-        this.setState(prevState => { return ({ totalFeedback:prevState.good+prevState.neutral+prevState.bad })})
-    }
+    
 
     render() {
+
+        const { good, neutral, bad } = this.state;
+
+        const countTotalFeedback =good + neutral + bad;
+           
+        const countPositiveFeedbackPercentage =Math.round( good/countTotalFeedback*100)
+            
+
         return (<>
             <div className={style.title}>Please leave feedback</div>
-            <button className={style.button} type="button" onClick={this.addGood}>Good</button>
-            <button className={style.button} type="button" onClick={this.addNeutral}>Neutral</button>
-            <button className={style.button} type="button" onClick={this.addBad}>Bad</button>
+            
+            {/* <Buttons/> */}
+
             <div className={style.title}>Statistic</div>
-            <div className={style.resultString}>Good:{this.state.good}</div>
+            <div className={style.resultString}>Good:{good}</div>
             <div className={style.resultString}>Neutral:{this.state.neutral}</div>
             <div className={style.resultString}>Bad:{this.state.bad}</div>
-            <div className={style.resultString}>Total:{this.state.totalFeedback}</div>
-            <div className={style.resultString}>Positive:{this.state.good}</div>
+            <div className={style.resultString}>Total:{countTotalFeedback}</div>
+            <div className={style.resultString}>Positive:{countPositiveFeedbackPercentage?countPositiveFeedbackPercentage:0}</div>
         </>
         );
     }
