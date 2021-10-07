@@ -1,7 +1,9 @@
+import React from "react";
 import style from "./FeedBack.module.css";
 import FeedbackOptions from "./FeedbackOptions";
 import Statistics from "./Statistic";
 import Notification from "./Notification";
+import PropTypes from "prop-types";
 
 export default function Section({ title, options, good, neutral, bad, total, positivePercentage }) {
     return <>
@@ -16,10 +18,19 @@ export default function Section({ title, options, good, neutral, bad, total, pos
                 bad={bad}
                 total={total}
                 positivePercentage={positivePercentage} />) :
-            (<Notification message="No feedback given"/>)
-           }
-        </>
+            (<Notification message="No feedback given" />)
+        }
+    </>;
 
 }
 
 
+Section.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    options:PropTypes.object.isRequired
+};
